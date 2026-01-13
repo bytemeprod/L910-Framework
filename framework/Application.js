@@ -51,18 +51,35 @@ class Application {
                     })
                 }
 
-                runMiddlewares(0);
+                try {
+                    runMiddlewares(0);
+                } catch (err) {
+                    this._handleError(res, err);
+                }
 
                 const handler = this._selectHandler(req);
 
                 if(handler) {
-                    handler(req, res);
+                    try {
+                        handler(req, res);
+                    } catch (err) {
+                        this._handleError(res, err);
+                    }
                 } else {
                     res.writeHead(404, {'Content-Type': 'text/plan'});
                     res.end('Not found');
                 }
             })
         })
+    }
+
+    _handleError(res, err) {
+        console.error("Error:", err);
+        res.status(500);
+        res.json({
+            status: 'error',
+            message: 'Internal Server Error',
+        });
     }
 
     _sendData(res) {
