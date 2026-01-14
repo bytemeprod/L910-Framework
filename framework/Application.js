@@ -1,5 +1,4 @@
 const http = require('http');
-const { url } = require('inspector');
 
 class Application {
     constructor() {
@@ -135,8 +134,8 @@ class Application {
                 }
 
                 if(routePath.includes(':')) {
-                    const routeParts = routePath.split('/')
-                    const pathParts = req.pathname.split('/')
+                    const routeParts = routePath.split('/');
+                    const pathParts = req.pathname.split('/');
 
                     if(routeParts.length === pathParts.length) {
                         let isMatch = true;
