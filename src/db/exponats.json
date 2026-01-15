@@ -1,0 +1,104 @@
+{
+  "lastInsertId": 10,
+  "exponats": [
+    {
+      "id": 2,
+      "name": "T-Rex Skeleton Replica",
+      "year": -68000000,
+      "isOriginal": false,
+      "createdAt": "2025-02-01T14:30:00.000Z",
+      "tags": [
+        "Fossil",
+        "Dinosaur"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Apollo 11 Space Suit",
+      "year": 1969,
+      "isOriginal": true,
+      "createdAt": "2025-03-10T09:15:00.000Z",
+      "tags": [
+        "Space",
+        "NASA"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Viking Iron Sword",
+      "year": 950,
+      "isOriginal": true,
+      "createdAt": "2025-03-12T16:45:00.000Z",
+      "tags": [
+        "Weapon",
+        "History"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Golden Pharaoh Mask",
+      "year": -1323,
+      "isOriginal": false,
+      "createdAt": "2025-04-05T11:20:00.000Z",
+      "tags": [
+        "Egypt",
+        "Gold"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "The Scream",
+      "year": 1893,
+      "isOriginal": true,
+      "createdAt": "2025-05-20T13:00:00.000Z",
+      "tags": [
+        "Art",
+        "Expressionism"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Enigma Machine",
+      "year": 1939,
+      "isOriginal": true,
+      "createdAt": "2025-06-01T08:50:00.000Z",
+      "tags": [
+        "Tech",
+        "WWII"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Mammoth Tusk",
+      "year": -10000,
+      "isOriginal": true,
+      "createdAt": "2025-07-15T15:10:00.000Z",
+      "tags": [
+        "Fossil",
+        "Ice Age"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Samurai Armor",
+      "year": 1600,
+      "isOriginal": true,
+      "createdAt": "2025-08-10T10:30:00.000Z",
+      "tags": [
+        "Japan",
+        "Military"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "First Apple Computer",
+      "year": 1976,
+      "isOriginal": false,
+      "createdAt": "2025-09-05T12:00:00.000Z",
+      "tags": [
+        "Tech",
+        "Computer"
+      ]
+    }
+  ]
+}
