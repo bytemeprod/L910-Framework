@@ -1,0 +1,60 @@
+{
+  "lastInsertId": 5,
+  "posters": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "releaseYear": 2010,
+      "isPremiere": false,
+      "createdAt": "2025-01-05T10:00:00.000Z",
+      "genres": [
+        "Sci-Fi",
+        "Thriller"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "The Godfather",
+      "releaseYear": 1972,
+      "isPremiere": false,
+      "createdAt": "2025-02-12T14:30:00.000Z",
+      "genres": [
+        "Crime",
+        "Drama"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Avatar: The Way of Water",
+      "releaseYear": 2022,
+      "isPremiere": false,
+      "createdAt": "2025-03-08T09:15:00.000Z",
+      "genres": [
+        "Sci-Fi",
+        "Action"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Dune: Part Two",
+      "releaseYear": 2024,
+      "isPremiere": true,
+      "createdAt": "2025-04-01T11:45:00.000Z",
+      "genres": [
+        "Adventure",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Barbie",
+      "releaseYear": 2023,
+      "isPremiere": false,
+      "createdAt": "2025-05-20T16:20:00.000Z",
+      "genres": [
+        "Comedy",
+        "Fantasy"
+      ]
+    }
+  ]
+}

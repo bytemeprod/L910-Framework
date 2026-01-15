@@ -1,6 +1,7 @@
 const Application = require("./framework/Application");
 const MuseumController = require("./src/controllers/MuseumController");
 const LibraryController = require("./src/controllers/LibraryController");
+const CinemaController = require('./src/controllers/CinemaPosterController');
 
 const PORT = 8080;
 
@@ -28,6 +29,13 @@ app.get("/library/books", libraryController.getAllBooks);
 app.get("/library/books/:id", libraryController.getBook);
 app.post("/library/books", libraryController.createBook);
 app.delete("/library/books/:id", libraryController.deleteBook);
+
+const cinemaController = new CinemaController();
+
+app.get('/cinema/posters', cinemaController.getAllPosters);
+app.get('/cinema/posters/:id', cinemaController.getPoster);
+app.post('/cinema/posters', cinemaController.createPoster);
+app.delete('/cinema/posters/:id', cinemaController.deletePoster);
 
 app.use(loggerMiddleware);
 
