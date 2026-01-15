@@ -30,5 +30,27 @@ class Validator {
             return null;
         }
     }
+
+    static validateMedicine(data) {
+        const errors = [];
+        
+        if (!data.name  typeof data.name !== 'string') {
+            errors.push('Name is required and must be a string');
+        }
+
+        if (data.price === undefined  typeof data.price !== 'number') {
+            errors.push('Price is required and must be a number');
+        }
+        
+        if (typeof data.isPrescriptionRequired !== 'boolean') {
+            errors.push('isPrescriptionRequired must be a boolean');
+        }
+
+        if (!Array.isArray(data.categories)) {
+            errors.push('Categories must be an array');
+        }
+
+        return errors.length > 0 ? errors : null;
+    }
 }
 module.exports = Validator;

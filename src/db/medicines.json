@@ -1,0 +1,60 @@
+{
+  "lastInsertId": 5,
+  "medicines": [
+    {
+      "id": 1,
+      "name": "Aspirin Complex",
+      "price": 12.50,
+      "isPrescriptionRequired": false,
+      "createdAt": "2025-01-12T08:30:00.000Z",
+      "categories": [
+        "Painkiller",
+        "Cold & Flu"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Amoxicillin 500mg",
+      "price": 25.00,
+      "isPrescriptionRequired": true,
+      "createdAt": "2025-02-14T11:00:00.000Z",
+      "categories": [
+        "Antibiotic",
+        "Bacterial Infection"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vitamin C + Zinc",
+      "price": 8.99,
+      "isPrescriptionRequired": false,
+      "createdAt": "2025-03-05T15:20:00.000Z",
+      "categories": [
+        "Supplement",
+        "Immunity"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Ibuprofen 400mg",
+      "price": 5.75,
+      "isPrescriptionRequired": false,
+      "createdAt": "2025-04-10T09:45:00.000Z",
+      "categories": [
+        "Anti-inflammatory",
+        "Painkiller"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Diazepam",
+      "price": 18.20,
+      "isPrescriptionRequired": true,
+      "createdAt": "2025-05-22T14:10:00.000Z",
+      "categories": [
+        "Sedative",
+        "Anxiety"
+      ]
+    }
+  ]
+}
