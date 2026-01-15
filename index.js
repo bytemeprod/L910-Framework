@@ -2,12 +2,14 @@ const Application = require("./framework/Application");
 const MuseumController = require("./src/controllers/MuseumController");
 const LibraryController = require("./src/controllers/LibraryController");
 const CinemaController = require('./src/controllers/CinemaPosterController');
+const ArmyController = require('./src/controllers/ArmyController');
 
 const PORT = 8080;
 
 const app = new Application();
 
 const museumController = new MuseumController();
+const armyController = new ArmyController();
 
 app.get("/museum/exponats", museumController.getAllExponats);
 app.get("/museum/exponats/:id", museumController.getExponat);
@@ -36,6 +38,11 @@ app.get('/cinema/posters', cinemaController.getAllPosters);
 app.get('/cinema/posters/:id', cinemaController.getPoster);
 app.post('/cinema/posters', cinemaController.createPoster);
 app.delete('/cinema/posters/:id', cinemaController.deletePoster);
+
+app.get('/army/soliders', armyController.getAllSoldiers);
+app.get('/army/soliders/:id', armyController.getSoldier);
+app.post('/army/soliders', armyController.createSoldier);
+app.delete('/army/soliders/:id', armyController.deleteSoldier);
 
 app.use(loggerMiddleware);
 

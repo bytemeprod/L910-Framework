@@ -21,7 +21,7 @@ class Validator {
         return errors.length > 0 ? errors : null;
     }
 
-    static validateExponatId(paramId) {
+    static validateId(paramId) {
         try {
             const id = Number(paramId);
             return id;
@@ -76,24 +76,46 @@ class Validator {
         }
 
         return errors.length > 0 ? errors : null;
-}
-static validatePoster(data) {
+        }
+    static validatePoster(data) {
+            const errors = [];
+            
+            if (!data.title || typeof data.title !== 'string') {
+                errors.push('Title is required and must be a string');
+            }
+            
+            if (data.releaseYear === undefined || typeof data.releaseYear !== 'number') {
+                errors.push('ReleaseYear is required and must be a number');
+            }
+
+            if (typeof data.isPremiere !== 'boolean') {
+                errors.push('isPremiere must be a boolean');
+            }
+
+            if (!Array.isArray(data.genres)) {
+                errors.push('Genres must be an array');
+            }
+
+            return errors.length > 0 ? errors : null;
+    }
+
+    static validateSoldier(data) {
         const errors = [];
         
-        if (!data.title || typeof data.title !== 'string') {
-            errors.push('Title is required and must be a string');
+        if (!data.name || typeof data.name !== 'string') {
+            errors.push('Name is required and must be a string');
         }
         
-        if (data.releaseYear === undefined || typeof data.releaseYear !== 'number') {
-            errors.push('ReleaseYear is required and must be a number');
+        if (!data.rank || typeof data.rank !== 'string') {
+            errors.push('Rank is required and must be a string');
         }
 
-        if (typeof data.isPremiere !== 'boolean') {
-            errors.push('isPremiere must be a boolean');
+        if (typeof data.isActive !== 'boolean') {
+            errors.push('isActive must be a boolean');
         }
 
-        if (!Array.isArray(data.genres)) {
-            errors.push('Genres must be an array');
+        if (!Array.isArray(data.skills)) {
+            errors.push('Skills must be an array');
         }
 
         return errors.length > 0 ? errors : null;
