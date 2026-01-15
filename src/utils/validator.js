@@ -34,11 +34,11 @@ class Validator {
     static validateMedicine(data) {
         const errors = [];
         
-        if (!data.name  typeof data.name !== 'string') {
+        if (!data.name || typeof data.name !== 'string') {
             errors.push('Name is required and must be a string');
         }
 
-        if (data.price === undefined  typeof data.price !== 'number') {
+        if (data.price === undefined || typeof data.price !== 'number') {
             errors.push('Price is required and must be a number');
         }
         
