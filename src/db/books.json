@@ -1,0 +1,65 @@
+{
+  "lastInsertId": 5,
+  "books": [
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "year": 1925,
+      "isAvailable": true,
+      "createdAt": "2025-01-10T09:00:00.000Z",
+      "genres": [
+        "Classic",
+        "Novel"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author": "George Orwell",
+      "year": 1949,
+      "isAvailable": false,
+      "createdAt": "2025-02-15T10:30:00.000Z",
+      "genres": [
+        "Dystopian",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "author": "J.K. Rowling",
+      "year": 1997,
+      "isAvailable": true,
+      "createdAt": "2025-03-20T12:00:00.000Z",
+      "genres": [
+        "Fantasy",
+        "Young Adult"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "year": 2008,
+      "isAvailable": true,
+      "createdAt": "2025-04-05T14:15:00.000Z",
+      "genres": [
+        "Technology",
+        "Programming"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "year": 1934,
+      "isAvailable": false,
+      "createdAt": "2025-05-12T16:50:00.000Z",
+      "genres": [
+        "Mystery",
+        "Crime"
+      ]
+    }
+  ]
+}

@@ -52,5 +52,30 @@ class Validator {
 
         return errors.length > 0 ? errors : null;
     }
+    static validateBook(data) {
+        const errors = [];
+        
+        if (!data.title || typeof data.title !== 'string') {
+            errors.push('Title is required and must be a string');
+        }
+
+        if (!data.author || typeof data.author !== 'string') {
+            errors.push('Author is required and must be a string');
+        }
+        
+        if (data.year === undefined || typeof data.year !== 'number') {
+            errors.push('Year is required and must be a number');
+        }
+
+        if (typeof data.isAvailable !== 'boolean') {
+            errors.push('isAvailable must be a boolean');
+        }
+
+        if (!Array.isArray(data.genres)) {
+            errors.push('Genres must be an array');
+        }
+
+        return errors.length > 0 ? errors : null;
+}
 }
 module.exports = Validator;
