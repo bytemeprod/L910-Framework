@@ -1,34 +1,41 @@
-const Application = require('./framework/Application');
-const MuseumController = require('./src/controllers/MuseumController');
+const Application = require("./framework/Application");
+const MuseumController = require("./src/controllers/MuseumController");
+const LibraryController = require("./src/controllers/LibraryController");
 
-const PORT = 8080
+const PORT = 8080;
 
 const app = new Application();
 
 const museumController = new MuseumController();
 
-app.get('/museum/exponats', museumController.getAllExponats);
-app.get('/museum/exponats/:id', museumController.getExponat);
-app.post('/museum/exponats', museumController.createExponat);
-app.delete('/museum/exponats/:id', museumController.deleteExponat);
+app.get("/museum/exponats", museumController.getAllExponats);
+app.get("/museum/exponats/:id", museumController.getExponat);
+app.post("/museum/exponats", museumController.createExponat);
+app.delete("/museum/exponats/:id", museumController.deleteExponat);
 
-const PharmacyController = require('./src/controllers/PharmacyController');
+const PharmacyController = require("./src/controllers/PharmacyController");
 
 const pharmacyController = new PharmacyController();
 
-app.get('/pharmacy/medicines', pharmacyController.getAllMedicines);
-app.get('/pharmacy/medicines/:id', pharmacyController.getMedicine);
-app.post('/pharmacy/medicines', pharmacyController.createMedicine);
-app.delete('/pharmacy/medicines/:id', pharmacyController.deleteMedicine);
+app.get("/pharmacy/medicines", pharmacyController.getAllMedicines);
+app.get("/pharmacy/medicines/:id", pharmacyController.getMedicine);
+app.post("/pharmacy/medicines", pharmacyController.createMedicine);
+app.delete("/pharmacy/medicines/:id", pharmacyController.deleteMedicine);
+
+const libraryController = new LibraryController();
+
+app.get("/library/books", libraryController.getAllBooks);
+app.get("/library/books/:id", libraryController.getBook);
+app.post("/library/books", libraryController.createBook);
+app.delete("/library/books/:id", libraryController.deleteBook);
 
 app.use(loggerMiddleware);
 
 app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
-})
+  console.log(`Server listening on port ${PORT}`);
+});
 
 function loggerMiddleware(req, res, next) {
-    console.log("New request:", req.method, req.pathname);
-    next();
+  console.log("New request:", req.method, req.pathname);
+  next();
 }
-
