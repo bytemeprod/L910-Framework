@@ -12,6 +12,15 @@ app.get('/museum/exponats/:id', museumController.getExponat);
 app.post('/museum/exponats', museumController.createExponat);
 app.delete('/museum/exponats/:id', museumController.deleteExponat);
 
+const PharmacyController = require('./src/controllers/PharmacyController');
+
+const pharmacyController = new PharmacyController();
+
+app.get('/pharmacy/medicines', pharmacyController.getAllMedicines);
+app.get('/pharmacy/medicines/:id', pharmacyController.getMedicine);
+app.post('/pharmacy/medicines', pharmacyController.createMedicine);
+app.delete('/pharmacy/medicines/:id', pharmacyController.deleteMedicine);
+
 app.use(loggerMiddleware);
 
 app.listen(PORT, () => {
@@ -22,3 +31,4 @@ function loggerMiddleware(req, res, next) {
     console.log("New request:", req.method, req.pathname);
     next();
 }
+
