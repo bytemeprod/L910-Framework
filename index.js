@@ -10,8 +10,12 @@ app.get("/", (req, res) => {
     res.send("HOME PAGE")
 })
 
+app.get("/users/", (req, res) => {
+    res.json({name: "User"})
+})
+
 app.get("/users/:id", (req, res) => {
-    res.json({name: "User", id:req.params.id})
+    res.json({name: "User", id: req.params.id})
 })
 
 app.listen(PORT, () => {

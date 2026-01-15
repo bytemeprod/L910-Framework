@@ -16,60 +16,67 @@ class Application {
             })
 
             req.on('end', () => {
-                try {
-                    req.body = JSON.parse(body);
-                } catch {
-                    req.body = {};
-                }
+                this._prepareRequestResponse(req, res, body);
 
-                this._setupQuery(req)
-
-                res.status = (code) => {
-                    res.statusCode = code;
-                }
-
-                res.send = this._sendData(res);
-
-                res.json = (data) => {
-                    res.send(data);
-                }
-
-                const runMiddlewares = (index) => {
-                    if(index === this.middlewares.length) {
-                        return;
-                    }
-
-                    const middleware = this.middlewares[index];
-
-                    if(!middleware) {
-                        return;
-                    }
-
-                    middleware(req, res, () => {
-                        runMiddlewares(index + 1);
-                    })
-                }
+                let chain = [...this.middlewares]
 
                 try {
-                    runMiddlewares(0);
+                    const handler = this._selectHandler(req);
+                    if(handler) {
+                        chain.push(handler);
+                    } else {
+                        chain.push((req, res) => {
+                            res.writeHead(404, {'Content-Type': 'text/plain'});
+                            res.end('Not found');
+                        });
+                    }
+                    this._runChain(req, res, chain, 0);
                 } catch (err) {
                     this._handleError(res, err);
                 }
-
-                const handler = this._selectHandler(req);
-
-                if(handler) {
-                    try {
-                        handler(req, res);
-                    } catch (err) {
-                        this._handleError(res, err);
-                    }
-                } else {
-                    res.writeHead(404, {'Content-Type': 'text/plan'});
-                    res.end('Not found');
-                }
             })
         })
+    }
+
+    _runChain(req, res, chain, index) {
+        if(index === chain.length) {
+            return;
+        }
+
+        const handler = chain[index];
+
+        if(!handler) {
+            return;
+        }
+
+        handler(req, res, () => {
+            this._runChain(req, res, chain, index + 1);
+        })
+    }
+
+    _prepareRequestResponse(req, res, body) {
+        try {
+            req.body = JSON.parse(body);
+        } catch {
+            req.body = {};
+        }
+
+        const protocol = req.protocol || 'http';
+        const host = req.headers.host;
+        const parsedUrl = new URL(req.url, `${protocol}://${host}`);
+
+        req.pathname = parsedUrl.pathname;
+        req.query = Object.fromEntries(parsedUrl.searchParams)
+
+        res.status = (code) => {
+            res.statusCode = code;
+        }
+
+        res.send = this._sendData(res);
+
+        res.json = (data) => {
+            res.send(data);
+        }
     }
 
     _handleError(res, err) {
@@ -95,15 +102,6 @@ class Application {
                 res.end(data);
             }
         }
-    }
-
-    _setupQuery(req) {
-        const protocol = req.protocol || 'http';
-        const host = req.headers.host;
-        const parsedUrl = new URL(req.url, `${protocol}://${host}`);
-
-        req.pathname = parsedUrl.pathname;
-        req.query = Object.fromEntries(parsedUrl.searchParams)
     }
 
     _selectHandler(req) {
